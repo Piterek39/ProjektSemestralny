@@ -14,5 +14,7 @@ namespace ProjektSemestralny.Models
         public DateTime DataRezerwacji { get; set; }
         public DateTime DataPrzyjazdu { get; set; }
         public DateTime DataWyjazdu { get; set; }
+        public virtual Customer Customer { get; set; }
+        public virtual Room Room { get; set; }
     }
 }

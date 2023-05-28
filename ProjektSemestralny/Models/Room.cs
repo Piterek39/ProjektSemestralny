@@ -12,6 +12,8 @@ namespace ProjektSemestralny.Models
         public int HotelID { get; set; }
         public string NumerPokoju { get; set; }
         public string TypPokoju { get; set; }
-        public bool Dostępność { get; set; }
+        public bool Dostepnosc { get; set; }
+        public virtual Hotel Hotel { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }

@@ -12,5 +12,6 @@ namespace ProjektSemestralny.Models
         public string Nazwa { get; set; }
         public string Adres { get; set; }
         public int LiczbaPokoi { get; set; }
+        public virtual ICollection<Room> Rooms { get; set; }
     }
 }
