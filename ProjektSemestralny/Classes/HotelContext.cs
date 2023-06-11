@@ -16,7 +16,7 @@ namespace ProjektSemestralny.Classes
         public DbSet<Reservation> Reservations { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=localhost\MSSQLSERVER01;Database=master;Trusted_Connection=True;");
+            optionsBuilder.UseSqlite($"Filename={System.IO.Path.Combine(System.Environment.CurrentDirectory, "Hotel.db")}");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -34,10 +34,11 @@ namespace ProjektSemestralny.Classes
             {
                 entityTypeBuilder.ToTable("Room");
                 entityTypeBuilder.HasKey(r => r.RoomID);
-                entityTypeBuilder.Property(r => r.HotelID);
+                //entityTypeBuilder.Property(r => r.HotelID);
                 entityTypeBuilder.Property(r => r.NumerPokoju);
                 entityTypeBuilder.Property(r => r.TypPokoju);
                 entityTypeBuilder.Property(r => r.Dostepnosc);
+                entityTypeBuilder.HasOne(r => r.Hotel).WithMany().HasForeignKey(r => r.HotelID);
             });
 
             modelBuilder.Entity<Customer>(entityTypeBuilder =>
@@ -53,11 +54,13 @@ namespace ProjektSemestralny.Classes
             {
                 entityTypeBuilder.ToTable("Reservation");
                 entityTypeBuilder.HasKey(v => v.ReservationID);
-                entityTypeBuilder.Property(v => v.CustomerID);
-                entityTypeBuilder.Property(v => v.RoomID);
+                //entityTypeBuilder.Property(v => v.CustomerID);
+                //entityTypeBuilder.Property(v => v.RoomID);
                 entityTypeBuilder.Property(v => v.DataRezerwacji);
                 entityTypeBuilder.Property(v => v.DataPrzyjazdu);
                 entityTypeBuilder.Property(v => v.DataWyjazdu);
+                entityTypeBuilder.HasOne(v => v.Customer).WithMany().HasForeignKey(v => v.CustomerID);
+                entityTypeBuilder.HasOne(v => v.Room).WithMany().HasForeignKey(v => v.RoomID);
             });
 
 
