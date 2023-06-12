@@ -8,10 +8,10 @@ namespace ProjektSemestralny.Models
 {
     public class Hotel
     {
-        public int HotelID { get; set; }
+        public int ID { get; set; }
         public string Nazwa { get; set; }
         public string Adres { get; set; }
         public int LiczbaPokoi { get; set; }
-        public virtual ICollection<Room> Rooms { get; set; }
+        //public virtual ICollection<Room> Rooms { get; set; }
     }
 }

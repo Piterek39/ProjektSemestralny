@@ -24,7 +24,7 @@ namespace ProjektSemestralny.Classes
             modelBuilder.Entity<Hotel>(entityTypeBuilder =>
             {
                 entityTypeBuilder.ToTable("Hotel");
-                entityTypeBuilder.HasKey(h => h.HotelID);
+                entityTypeBuilder.HasKey(h => h.ID);
                 entityTypeBuilder.Property(h => h.Nazwa);
                 entityTypeBuilder.Property(h => h.Adres);
                 entityTypeBuilder.Property(h => h.LiczbaPokoi);               
@@ -33,18 +33,19 @@ namespace ProjektSemestralny.Classes
             modelBuilder.Entity<Room>(entityTypeBuilder =>
             {
                 entityTypeBuilder.ToTable("Room");
-                entityTypeBuilder.HasKey(r => r.RoomID);
+                entityTypeBuilder.HasKey(r => r.ID);
                 //entityTypeBuilder.Property(r => r.HotelID);
                 entityTypeBuilder.Property(r => r.NumerPokoju);
                 entityTypeBuilder.Property(r => r.TypPokoju);
                 entityTypeBuilder.Property(r => r.Dostepnosc);
                 entityTypeBuilder.HasOne(r => r.Hotel).WithMany().HasForeignKey(r => r.HotelID);
+                entityTypeBuilder.Navigation(r => r.Hotel).AutoInclude();
             });
 
             modelBuilder.Entity<Customer>(entityTypeBuilder =>
                 {
                     entityTypeBuilder.ToTable("Customer");
-                    entityTypeBuilder.HasKey(c => c.CustomerID);
+                    entityTypeBuilder.HasKey(c => c.ID);
                     entityTypeBuilder.Property(c => c.Imie);
                     entityTypeBuilder.Property(c => c.Nazwisko);
                     entityTypeBuilder.Property(c => c.Adres);
@@ -53,7 +54,7 @@ namespace ProjektSemestralny.Classes
             modelBuilder.Entity<Reservation>(entityTypeBuilder =>
             {
                 entityTypeBuilder.ToTable("Reservation");
-                entityTypeBuilder.HasKey(v => v.ReservationID);
+                entityTypeBuilder.HasKey(v => v.ID);
                 //entityTypeBuilder.Property(v => v.CustomerID);
                 //entityTypeBuilder.Property(v => v.RoomID);
                 entityTypeBuilder.Property(v => v.DataRezerwacji);
@@ -61,6 +62,8 @@ namespace ProjektSemestralny.Classes
                 entityTypeBuilder.Property(v => v.DataWyjazdu);
                 entityTypeBuilder.HasOne(v => v.Customer).WithMany().HasForeignKey(v => v.CustomerID);
                 entityTypeBuilder.HasOne(v => v.Room).WithMany().HasForeignKey(v => v.RoomID);
+                entityTypeBuilder.Navigation(v => v.Customer).AutoInclude();
+                entityTypeBuilder.Navigation(v => v.Room).AutoInclude();
             });
 
 

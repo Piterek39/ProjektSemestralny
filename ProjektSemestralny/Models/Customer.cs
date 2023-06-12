@@ -8,11 +8,11 @@ namespace ProjektSemestralny.Models
 {
     public class Customer
     {
-        public int CustomerID { get; set; }
+        public int ID { get; set; }
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public string Adres { get; set; }
         public string NumerTelefonu { get; set; }
-        public virtual ICollection<Reservation> Reservations { get; set; }
+        //public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }
