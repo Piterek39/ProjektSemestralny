@@ -5,25 +5,53 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjektSemestralny.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="620"
       Title="Hotels">
 
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"
+                           />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
         <TextBlock Text="Hotel List "                    
                      FontSize="30"
                      VerticalAlignment="Center"
                      HorizontalAlignment="Center"                   
-                     Grid.Column="1"                                   
+                     Grid.Row="0"                                   
                     Foreground="white"/>
         <Button Width="100"
                      Height="30"
                      VerticalAlignment="Center"
                      HorizontalAlignment="Right"
                      Margin="10"
-                     Grid.Column="1"
+                     Grid.Row="0"
                     Background="#3D4A51"
                     Content="Add hotel" 
+                    Click="AddHotelButton_Click"
                     Foreground="white"/>
+   
+    
+        <DataGrid  Grid.Row="1"
+                              x:Name="Hotel"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              Background="#3D4A51">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="3*" Header="ID"  />
+                <DataGridTextColumn Width="3*" Header="Nazwa"  />
+                <DataGridTextColumn Width="3*" Header="Adres"  />
+                <DataGridTextColumn Width="3*" Header="Liczba pokoi" />
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="ButtonDeleteHotel_Click">Usuń</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

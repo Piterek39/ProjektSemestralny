@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace ProjektSemestralny.Views
 {
     /// <summary>
-    /// Interaction logic for Hotel.xaml
+    /// Interaction logic for AddRoom.xaml
     /// </summary>
-    public partial class Hotels : Page
+    public partial class AddRoom : Page
     {
-        public Hotels()
+        public AddRoom()
         {
             InitializeComponent();
-        }
-        private async void ButtonDeleteHotel_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void AddHotelButton_Click(object sender, RoutedEventArgs e)
-        {
-            AddHotel newPage = new AddHotel();
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            navigationService.Navigate(newPage);
         }
     }
 }

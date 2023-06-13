@@ -24,5 +24,15 @@ namespace ProjektSemestralny.Views
         {
             InitializeComponent();
         }
+        private async void ButtonDeleteRoom_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void AddRoomButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddRoom newPage = new AddRoom();
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(newPage);
+        }
     }
 }

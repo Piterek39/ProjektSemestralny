@@ -5,10 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjektSemestralny.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="620"
       Title="Rooms">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"
+                           />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <TextBlock Text="Room List "                    
                      FontSize="30"
                      VerticalAlignment="Center"
@@ -23,6 +28,26 @@
                      Grid.Column="1"
                     Background="#3D4A51"
                     Content="Add room" 
+                    Click="AddRoomButton_Click"
                     Foreground="white"/>
+        <DataGrid  Grid.Row="1"
+                              x:Name="Room"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              Background="#3D4A51">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="3*" Header="ID"  />
+                <DataGridTextColumn Width="3*" Header="Numer pokoju"  />
+                <DataGridTextColumn Width="3*" Header="Typ pokoju"  />
+                <DataGridTextColumn Width="3*" Header="Dostepnosc" />
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="ButtonDeleteRoom_Click">Usuń</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

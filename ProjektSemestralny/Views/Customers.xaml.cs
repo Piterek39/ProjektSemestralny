@@ -24,5 +24,15 @@ namespace ProjektSemestralny.Views
         {
             InitializeComponent();
         }
+        private async void ButtonDeleteCustomer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void AddCustomerButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddCustomer newPage = new AddCustomer();
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(newPage);
+        }
     }
 }

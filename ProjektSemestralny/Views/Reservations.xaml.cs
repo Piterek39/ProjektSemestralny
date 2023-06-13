@@ -24,5 +24,15 @@ namespace ProjektSemestralny.Views
         {
             InitializeComponent();
         }
+        private async void ButtonDeleteReservation_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void AddReservationButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddReservation newPage = new AddReservation();
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            navigationService.Navigate(newPage);
+        }
     }
 }
