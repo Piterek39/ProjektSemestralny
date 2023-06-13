@@ -60,34 +60,38 @@
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource ButtonTheme}"
+                             Click="HotelButton_Click"
                              />
                 <RadioButton Content="Room"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource ButtonTheme}"
+                             Click="RoomButton_Click"
                              />
                 <RadioButton Content="Customer"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource ButtonTheme}"
+                             Click="CustomerButton_Click"
                              />
                 <RadioButton Content="Reservation"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource ButtonTheme}"
+                             Click="ReservationButton_Click"
                              />
             </StackPanel>
-            <TextBlock Text="Welcome to hotel app! "                    
-                     FontSize="30"
-                     VerticalAlignment="Center"
-                     HorizontalAlignment="Center"                   
-                     Grid.Column="1"                                   
-                    Foreground="white"/>
+            
+
+            <Frame
+            x:Name="mainFrame"
+            Grid.Column="1"
+            NavigationUIVisibility="Hidden" />
         </Grid>
-        
+       
     </Border>
    
 </Window>
