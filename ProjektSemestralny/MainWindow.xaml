@@ -5,45 +5,89 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektSemestralny"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-        <!-- Przyciski -->
-        <StackPanel Grid.Column="0" Margin="10">
-            <Button Content="Hotel" Width="100" Click="HotelButton_Click" Margin="0 0 0 10"/>
-            <Button Content="Customer" Width="100" Click="CustomerButton_Click" Margin="0 0 0 10"/>
-            <Button Content="Room" Width="100" Click="RoomButton_Click" Margin="0 0 0 10"/>
-            <Button Content="Reservation" Width="100" Click="ReservationButton_Click" Margin="0 0 0 10"/>
-        </StackPanel>
-
-        <!-- Obszar bazy danych -->
-        <Grid Grid.Column="1" Margin="10">
+        Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Window.Resources>
+        <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
+               TargetType="{x:Type RadioButton}"
+               x:Key="ButtonTheme">
+            <Style.Setters>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <Grid VerticalAlignment="Stretch"
+                                  HorizontalAlignment="Stretch"
+                                  Background="{TemplateBinding Background}">
+                                <TextBlock Text="{TemplateBinding Content}"
+                                           VerticalAlignment="Center"
+                                           Margin="50,0,0,0"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value> 
+                </Setter>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="#3D4A51"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Border Background="#4F5F69"
+                CornerRadius="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="75"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-
-            <Button Content="Dodaj do bazy danych" Width="120" HorizontalAlignment="Right" VerticalAlignment="Top" Click="AddToDatabaseButton_Click" Margin="0 0 0 10"/>
-
-            <ListView x:Name="databaseListView" Grid.Row="1">
-                <ListView.View>
-                    <GridView>
-                        <!-- Kolumny -->
-                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}"/>
-                        <GridViewColumn Header="Nazwa" DisplayMemberBinding="{Binding Name}"/>
-                        <GridViewColumn Header="Adres" DisplayMemberBinding="{Binding Address}"/>
-                        <GridViewColumn Header="Liczba Pokoi" DisplayMemberBinding="{Binding RoomCount}"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding}"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding}"/>
-                        <!-- Dodaj dodatkowe kolumny -->
-                        <!-- ... -->
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <TextBlock Text="Hotel App"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="White"
+                   FontSize="25"/>
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Hotel"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource ButtonTheme}"
+                             />
+                <RadioButton Content="Room"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource ButtonTheme}"
+                             />
+                <RadioButton Content="Customer"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource ButtonTheme}"
+                             />
+                <RadioButton Content="Reservation"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource ButtonTheme}"
+                             />
+            </StackPanel>
+            <TextBlock Text="Welcome to hotel app! "                    
+                     FontSize="30"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center"                   
+                     Grid.Column="1"                                   
+                    Foreground="white"/>
         </Grid>
-    </Grid>
+        
+    </Border>
+   
 </Window>
