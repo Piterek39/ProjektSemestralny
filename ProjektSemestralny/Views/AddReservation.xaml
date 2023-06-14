@@ -49,18 +49,20 @@
                                Content="Id klienta:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         <ComboBox Grid.Column="1" Grid.Row="4"
                                   x:Name="CbxIDCustomer" VerticalAlignment="Center" Margin="0 0 20 0"
-                                  DisplayMemberPath="Name"
-                                  SelectedValuePath="Name"
-                                  SelectedValue="{Binding Path=Name}"/>
+                                  DisplayMemberPath="ID"
+                                  SelectedValuePath="ID"
+                                  SelectedValue="{Binding Path=ID}"
+                                ItemsSource="{Binding Path=Customers}"/>
         <Label Grid.Column="0" Grid.Row="5" Foreground="white"
                                Content="Id pokoju:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         <ComboBox Grid.Column="1" Grid.Row="5"
                                   x:Name="CbxIDRoom" VerticalAlignment="Center" Margin="0 0 20 0"
-                                  DisplayMemberPath="Name"
-                                  SelectedValuePath="Name"
-                                  SelectedValue="{Binding Path=Name}"/>
+                                  DisplayMemberPath="ID"
+                                  SelectedValuePath="ID"
+                                  SelectedValue="{Binding Path=ID}"
+                                ItemsSource="{Binding Path=Rooms}"/>
         <Button Grid.Column="1" Grid.Row="6" Background="#3D4A51" Foreground="white"
-                                x:Name="ButtonAddNewReservation" Content="Dodaj" Width="60" Margin="0 0 20 0" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                x:Name="ButtonAddNewReservation" Content="Dodaj" Width="60" Margin="0 0 20 0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="ButtonAddNewReservation_Click"
                                 />
     </Grid>
 </Page>

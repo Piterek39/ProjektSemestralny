@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:ProjektSemestralny.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="620"
-      Title="Reservations">
+      Title="Reservations"
+      Loaded="Window_Loaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -36,10 +37,11 @@
                               IsReadOnly="True"
                               Background="#3D4A51">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="3*" Header="ID"  />
-                <DataGridTextColumn Width="3*" Header="Data rezerwacji"  />
-                <DataGridTextColumn Width="3*" Header="Data przyjazdu"  />
-                <DataGridTextColumn Width="3*" Header="Data wyjazdu" />
+                <DataGridTextColumn Width="3*" Header="Data rezerwacji"  Binding="{Binding DataRezerwacji,StringFormat=\{0:dd.MM.yyyy\}}"/>
+                <DataGridTextColumn Width="3*" Header="Data przyjazdu" Binding="{Binding DataPrzyjazdu,StringFormat=\{0:dd.MM.yyyy\}}" />
+                <DataGridTextColumn Width="3*" Header="Data wyjazdu" Binding="{Binding DataWyjazdu,StringFormat=\{0:dd.MM.yyyy\}}"/>
+                <DataGridTextColumn Width="3*" Header="Customer ID" Binding="{Binding Customer.ID}" />
+                <DataGridTextColumn Width="3*" Header="Room ID" Binding="{Binding Room.ID}" />
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
