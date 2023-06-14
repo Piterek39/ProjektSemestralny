@@ -35,7 +35,16 @@ namespace ProjektSemestralny.Views
         }
         private async void ButtonDeleteRoom_Click(object sender, RoutedEventArgs e)
         {
-
+            using HotelDbContext context = new HotelDbContext();
+            Room selectedRoom = Room.SelectedItem as Room;
+            if (context.Entry(selectedRoom).State == EntityState.Detached)
+            {
+                context.Attach(selectedRoom);
+            }
+            context.Rooms.Remove(selectedRoom);
+            context.SaveChanges();
+            var rooms = await context.Rooms.ToListAsync();
+            Room.ItemsSource = rooms;
         }
         private void AddRoomButton_Click(object sender, RoutedEventArgs e)
         {

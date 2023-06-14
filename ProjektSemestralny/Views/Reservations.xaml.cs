@@ -35,7 +35,16 @@ namespace ProjektSemestralny.Views
         }
         private async void ButtonDeleteReservation_Click(object sender, RoutedEventArgs e)
         {
-
+            using HotelDbContext context = new HotelDbContext();
+            Reservation selectedReservation = Reservation.SelectedItem as Reservation;
+            if (context.Entry(selectedReservation).State == EntityState.Detached)
+            {
+                context.Attach(selectedReservation);
+            }
+            context.Reservations.Remove(selectedReservation);
+            context.SaveChanges();
+            var reservations = await context.Reservations.ToListAsync();
+            Reservation.ItemsSource = reservations;
         }
         private void AddReservationButton_Click(object sender, RoutedEventArgs e)
         {

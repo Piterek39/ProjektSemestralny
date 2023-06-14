@@ -35,7 +35,16 @@ namespace ProjektSemestralny.Views
         }
         private async void ButtonDeleteCustomer_Click(object sender, RoutedEventArgs e)
         {
-
+            using HotelDbContext context = new HotelDbContext();
+            Customer selectedCustomer = Customer.SelectedItem as Customer;
+            if (context.Entry(selectedCustomer).State == EntityState.Detached)
+            {
+                context.Attach(selectedCustomer);
+            }
+            context.Customers.Remove(selectedCustomer);
+            context.SaveChanges();
+            var customers = await context.Customers.ToListAsync();
+            Customer.ItemsSource = customers;
         }
         private void AddCustomerButton_Click(object sender, RoutedEventArgs e)
         {
