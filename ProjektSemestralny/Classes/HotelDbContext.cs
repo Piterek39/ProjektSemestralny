@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using ProjektSemestralny.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +16,18 @@ namespace ProjektSemestralny.Classes
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+       // public static HotelDbContext Context { get; } = new HotelDbContext();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite($"Filename={System.IO.Path.Combine(System.Environment.CurrentDirectory, "Hotel.db")}");
+            string Directory1 = Directory.GetParent(Directory.GetParent(Directory.GetParent(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory)).FullName).FullName).FullName;
+            string FilePath = Path.Combine(Directory1, "Hotel.db");
+            SqliteConnectionStringBuilder builder = new SqliteConnectionStringBuilder();
+            builder.DataSource = FilePath;
+            string connectionString = builder.ConnectionString;
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlite(connectionString);
+            optionsBuilder.EnableSensitiveDataLogging();
+            //optionsBuilder.UseSqlite($"Filename={System.IO.Path.Combine(System.Environment.CurrentDirectory, "Hotel.db")}");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

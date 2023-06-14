@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using ProjektSemestralny.Classes;
+using ProjektSemestralny.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,12 @@ namespace ProjektSemestralny.Views
         public Rooms()
         {
             InitializeComponent();
+        }
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            using HotelDbContext context = new HotelDbContext();
+            var rooms = await context.Rooms.ToListAsync();
+            Room.ItemsSource = rooms;
         }
         private async void ButtonDeleteRoom_Click(object sender, RoutedEventArgs e)
         {

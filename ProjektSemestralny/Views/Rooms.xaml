@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:ProjektSemestralny.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="620"
-      Title="Rooms">
+      Title="Rooms"
+      Loaded="Window_Loaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -36,10 +37,10 @@
                               IsReadOnly="True"
                               Background="#3D4A51">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="3*" Header="ID"  />
-                <DataGridTextColumn Width="3*" Header="Numer pokoju"  />
-                <DataGridTextColumn Width="3*" Header="Typ pokoju"  />
-                <DataGridTextColumn Width="3*" Header="Dostepnosc" />
+                <DataGridTextColumn Width="3*" Header="ID Hotelu"  Binding="{Binding Hotel.ID}"/>
+                <DataGridTextColumn Width="3*" Header="Numer pokoju" Binding="{Binding NumerPokoju}" />
+                <DataGridTextColumn Width="3*" Header="Typ pokoju" Binding="{Binding TypPokoju}" />
+                <DataGridTextColumn Width="3*" Header="Dostepnosc" Binding="{Binding Dostepnosc}" />
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

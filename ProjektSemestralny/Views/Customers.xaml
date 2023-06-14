@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:ProjektSemestralny.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="620"
-      Title="Customers">
+      Title="Customers"
+      Loaded="Window_Loaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -36,11 +37,11 @@
                               IsReadOnly="True"
                               Background="#3D4A51">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="3*" Header="ID"  />
-                <DataGridTextColumn Width="3*" Header="Imie"  />
-                <DataGridTextColumn Width="3*" Header="Nazwisko"  />
-                <DataGridTextColumn Width="3*" Header="Adres" />
-                <DataGridTextColumn Width="3*" Header="Numer telefonu" />
+                <DataGridTextColumn Width="3*" Header="ID" Binding="{Binding ID}" />
+                <DataGridTextColumn Width="3*" Header="Imie" Binding="{Binding Imie}" />
+                <DataGridTextColumn Width="3*" Header="Nazwisko" Binding="{Binding Nazwisko}" />
+                <DataGridTextColumn Width="3*" Header="Adres" Binding="{Binding Adres}"/>
+                <DataGridTextColumn Width="3*" Header="Numer telefonu" Binding="{Binding NumerTelefonu}"/>
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

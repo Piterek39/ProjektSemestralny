@@ -35,18 +35,18 @@
         <Label Grid.Column="0" Grid.Row="1" Foreground="white"
                                Content="Nazwa:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         <TextBox Grid.Column="1" Grid.Row="1" 
-                                 x:Name="TbxName" VerticalAlignment="Center" Margin="0 0 20 0"/>
+                                 Name="TbxNazwa" VerticalAlignment="Center" Margin="0 0 20 0"/>
         <Label Grid.Column="0" Grid.Row="2" Foreground="white"
                                Content="Adres" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         <TextBox Grid.Column="1" Grid.Row="2" 
-                                 x:Name="TbxAdres" VerticalAlignment="Center" Margin="0 0 20 0"/>
+                                 Name="TbxAdres" VerticalAlignment="Center" Margin="0 0 20 0"/>
         <Label Grid.Column="0" Grid.Row="3" Foreground="white"
                                Content="Liczba pokoi:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         <TextBox Grid.Column="1" Grid.Row="3" 
-                                 x:Name="TbxRoomAmount" VerticalAlignment="Center" Margin="0 0 20 0"/>
+                                 Name="TbxLiczbaPokoi" VerticalAlignment="Center" Margin="0 0 20 0"/>
 
         <Button Grid.Column="1" Grid.Row="4" Background="#3D4A51" Foreground="white"
-                                x:Name="ButtonAddNewHotel" Content="Dodaj" Width="60" Margin="0 0 20 0" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                x:Name="ButtonAddNewHotel" Content="Dodaj" Width="60" Margin="0 0 20 0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="ButtonAddNewHotel_Click"
                                 />
     </Grid>
 </Page>

@@ -49,7 +49,7 @@
         <TextBox Grid.Column="1" Grid.Row="4" 
                                  x:Name="TbxNumerTelefonu" VerticalAlignment="Center" Margin="0 0 20 0"/>
         <Button Grid.Column="1" Grid.Row="5" Background="#3D4A51" Foreground="white"
-                                x:Name="ButtonAddNewCustomer" Content="Dodaj" Width="60" Margin="0 0 20 0" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                x:Name="ButtonAddNewCustomer" Content="Dodaj" Width="60" Margin="0 0 20 0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="ButtonAddNewCustomer_Click"
                                 />
     </Grid>
 </Page>

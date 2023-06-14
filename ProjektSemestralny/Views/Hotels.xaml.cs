@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ProjektSemestralny.Classes;
+using ProjektSemestralny.Models;
+using ProjektSemestralny.Views;
 
 namespace ProjektSemestralny.Views
 {
@@ -20,10 +25,19 @@ namespace ProjektSemestralny.Views
     /// </summary>
     public partial class Hotels : Page
     {
+        
         public Hotels()
         {
-            InitializeComponent();
+            InitializeComponent();       
         }
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            using HotelDbContext context = new HotelDbContext();
+            var hotels = await context.Hotels.ToListAsync();
+            Hotel.ItemsSource = hotels;
+        }
+
+
         private async void ButtonDeleteHotel_Click(object sender, RoutedEventArgs e)
         {
 
