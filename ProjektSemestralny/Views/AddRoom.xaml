@@ -38,16 +38,31 @@
                                  x:Name="Tbxnumerpokoju" VerticalAlignment="Center" Margin="0 0 20 0"/>
         <Label Grid.Column="0" Grid.Row="2" Foreground="white"
                                Content="Typ pokoju" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <TextBox Grid.Column="1" Grid.Row="2" 
-                                 x:Name="Tbxtyppokoju" VerticalAlignment="Center" Margin="0 0 20 0"/>
+        <ComboBox Grid.Column="1" Grid.Row="2"
+                                  x:Name="CbxTypPokoju" VerticalAlignment="Center" Margin="0 0 20 0">
+            <ComboBox.Items>
+                <ComboBoxItem Content="1-osobowy"/>
+                <ComboBoxItem Content="2-osobowy"/>
+                <ComboBoxItem Content="3-osobowy"/>
+                <ComboBoxItem Content="4-osobowy"/>
+            </ComboBox.Items>
+        </ComboBox>
         <Label Grid.Column="0" Grid.Row="3" Foreground="white"
                                Content="Dostepnosc:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <TextBox Grid.Column="1" Grid.Row="3" 
-                                 x:Name="Tbxdostepnosc" VerticalAlignment="Center" Margin="0 0 20 0"/>
+        <ComboBox Grid.Column="1" Grid.Row="3"
+                                  x:Name="CbxDostepnosc" VerticalAlignment="Center" Margin="0 0 20 0">
+            <ComboBox.Items>
+                <ComboBoxItem Content="Dostepny"/>
+                <ComboBoxItem Content="Niedostepny"/>
+            </ComboBox.Items>
+        </ComboBox>
         <Label Grid.Column="0" Grid.Row="4" Foreground="white"
                                Content="Id hotelu:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <TextBox Grid.Column="1" Grid.Row="4" 
-                                 x:Name="Tbxidhotelu" VerticalAlignment="Center" Margin="0 0 20 0"/>
+        <ComboBox Grid.Column="1" Grid.Row="4"
+                                  x:Name="CbxIDHotelu" VerticalAlignment="Center" Margin="0 0 20 0"
+                                  DisplayMemberPath="Name"
+                                  SelectedValuePath="Name"
+                                  SelectedValue="{Binding Path=Name}"/>
         <Button Grid.Column="1" Grid.Row="5" Background="#3D4A51" Foreground="white"
                                 x:Name="ButtonAddNewRoom" Content="Dodaj" Width="60" Margin="0 0 20 0" VerticalAlignment="Center" HorizontalAlignment="Center"
                                 />

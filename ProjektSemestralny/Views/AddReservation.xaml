@@ -35,24 +35,30 @@
                     Foreground="white"/>
         <Label Grid.Column="0" Grid.Row="1" Foreground="white"
                                Content="Data rezerwacji:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <TextBox Grid.Column="1" Grid.Row="1" 
-                                 x:Name="Tbxdatarezerwacji" VerticalAlignment="Center" Margin="0 0 20 0"/>
+        <DatePicker Grid.Column="1" Grid.Row="1"
+                                    x:Name="DtpcrDataRezerwacji" VerticalAlignment="Center" Margin="0 0 20 0"/>
         <Label Grid.Column="0" Grid.Row="2" Foreground="white"
                                Content="Data przyjazdu" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <TextBox Grid.Column="1" Grid.Row="2" 
-                                 x:Name="Tbxdataprzyjazdu" VerticalAlignment="Center" Margin="0 0 20 0"/>
+        <DatePicker Grid.Column="1" Grid.Row="2"
+                                    x:Name="DtpcrDataPrzyjazdu" VerticalAlignment="Center" Margin="0 0 20 0"/>
         <Label Grid.Column="0" Grid.Row="3" Foreground="white"
                                Content="Data wyjazdu:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <TextBox Grid.Column="1" Grid.Row="3" 
-                                 x:Name="Tbxdatawyjazdu" VerticalAlignment="Center" Margin="0 0 20 0"/>
+        <DatePicker Grid.Column="1" Grid.Row="3"
+                                    x:Name="DtpcrDataWyjazdu" VerticalAlignment="Center" Margin="0 0 20 0"/>
         <Label Grid.Column="0" Grid.Row="4" Foreground="white"
                                Content="Id klienta:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <TextBox Grid.Column="1" Grid.Row="4" 
-                                 x:Name="Tbxidklinta" VerticalAlignment="Center" Margin="0 0 20 0"/>
+        <ComboBox Grid.Column="1" Grid.Row="4"
+                                  x:Name="CbxIDCustomer" VerticalAlignment="Center" Margin="0 0 20 0"
+                                  DisplayMemberPath="Name"
+                                  SelectedValuePath="Name"
+                                  SelectedValue="{Binding Path=Name}"/>
         <Label Grid.Column="0" Grid.Row="5" Foreground="white"
                                Content="Id pokoju:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <TextBox Grid.Column="1" Grid.Row="5" 
-                                 x:Name="Tbxidpokoju" VerticalAlignment="Center" Margin="0 0 20 0"/>
+        <ComboBox Grid.Column="1" Grid.Row="5"
+                                  x:Name="CbxIDRoom" VerticalAlignment="Center" Margin="0 0 20 0"
+                                  DisplayMemberPath="Name"
+                                  SelectedValuePath="Name"
+                                  SelectedValue="{Binding Path=Name}"/>
         <Button Grid.Column="1" Grid.Row="6" Background="#3D4A51" Foreground="white"
                                 x:Name="ButtonAddNewReservation" Content="Dodaj" Width="60" Margin="0 0 20 0" VerticalAlignment="Center" HorizontalAlignment="Center"
                                 />
