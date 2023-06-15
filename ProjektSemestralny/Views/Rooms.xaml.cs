@@ -46,6 +46,16 @@ namespace ProjektSemestralny.Views
             var rooms = await context.Rooms.ToListAsync();
             Room.ItemsSource = rooms;
         }
+        private void ButtonUpdateRoom_Click(object sender, RoutedEventArgs e)
+        {
+            Room selectedRoom = Room.SelectedItem as Room;
+            if (selectedRoom != null)
+            {
+                UpdateRoom updateRoomPage = new UpdateRoom();
+                updateRoomPage.SelectedRoom = selectedRoom;
+                NavigationService?.Navigate(updateRoomPage);
+            }
+        }
         private void AddRoomButton_Click(object sender, RoutedEventArgs e)
         {
             AddRoom newPage = new AddRoom();

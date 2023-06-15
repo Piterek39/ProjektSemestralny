@@ -41,8 +41,7 @@ namespace ProjektSemestralny.Views
             Room room = new Room()
             {
                 NumerPokoju = ((TextBox)FindName("TbxNumerPokoju")).Text ?? "Empty",
-                TypPokoju = ((ComboBox)FindName("CbxTypPokoju")).Text ?? "1-osobowy",
-                //Dostepnosc = ((ComboBox)FindName("CbxDostepnosc")).SelectedValue.ToString().Contains("Niedostepny") ? "Niedostepny": "Dostepny",
+                TypPokoju = ((ComboBox)FindName("CbxTypPokoju")).Text ?? "1-osobowy",             
                 Dostepnosc = ((ComboBox)FindName("CbxDostepnosc")).Text ?? "Niedostepny",
                 HotelID = int.TryParse(((ComboBox)FindName("CbxIDHotel")).Text, out int hotelid) ? hotelid : 0
             };

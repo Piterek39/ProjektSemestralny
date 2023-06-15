@@ -25,7 +25,6 @@ namespace ProjektSemestralny.Views
     /// </summary>
     public partial class Hotels : Page
     {
-        
         public Hotels()
         {
             InitializeComponent();       
@@ -34,7 +33,7 @@ namespace ProjektSemestralny.Views
         {
             using HotelDbContext context = new HotelDbContext();
             var hotels = await context.Hotels.ToListAsync();
-            Hotel.ItemsSource = hotels;
+            Hotel.ItemsSource = hotels;          
         }
 
         private async void ButtonDeleteHotel_Click(object sender, RoutedEventArgs e)
@@ -50,6 +49,16 @@ namespace ProjektSemestralny.Views
             var hotels = await context.Hotels.ToListAsync();
             Hotel.ItemsSource = hotels;
 
+        }
+        private void ButtonUpdateHotel_Click(object sender, RoutedEventArgs e)
+        {          
+            Hotel selectedHotel = Hotel.SelectedItem as Hotel;
+            if (selectedHotel != null)
+            {
+                UpdateHotel updateHotelPage = new UpdateHotel();
+                updateHotelPage.SelectedHotel = selectedHotel;
+                NavigationService?.Navigate(updateHotelPage);
+            }
         }
         private void AddHotelButton_Click(object sender, RoutedEventArgs e)
         {

@@ -16,7 +16,6 @@ namespace ProjektSemestralny.Classes
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
-       // public static HotelDbContext Context { get; } = new HotelDbContext();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string Directory1 = Directory.GetParent(Directory.GetParent(Directory.GetParent(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory)).FullName).FullName).FullName;
@@ -26,8 +25,7 @@ namespace ProjektSemestralny.Classes
             string connectionString = builder.ConnectionString;
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlite(connectionString);
-            optionsBuilder.EnableSensitiveDataLogging();
-            //optionsBuilder.UseSqlite($"Filename={System.IO.Path.Combine(System.Environment.CurrentDirectory, "Hotel.db")}");
+            optionsBuilder.EnableSensitiveDataLogging();          
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -45,7 +43,6 @@ namespace ProjektSemestralny.Classes
             {
                 entityTypeBuilder.ToTable("Room");
                 entityTypeBuilder.HasKey(r => r.ID);
-                //entityTypeBuilder.Property(r => r.HotelID);
                 entityTypeBuilder.Property(r => r.NumerPokoju);
                 entityTypeBuilder.Property(r => r.TypPokoju);
                 entityTypeBuilder.Property(r => r.Dostepnosc);
@@ -66,8 +63,6 @@ namespace ProjektSemestralny.Classes
             {
                 entityTypeBuilder.ToTable("Reservation");
                 entityTypeBuilder.HasKey(v => v.ID);
-                //entityTypeBuilder.Property(v => v.CustomerID);
-                //entityTypeBuilder.Property(v => v.RoomID);
                 entityTypeBuilder.Property(v => v.DataRezerwacji);
                 entityTypeBuilder.Property(v => v.DataPrzyjazdu);
                 entityTypeBuilder.Property(v => v.DataWyjazdu);

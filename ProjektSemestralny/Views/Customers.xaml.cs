@@ -46,6 +46,16 @@ namespace ProjektSemestralny.Views
             var customers = await context.Customers.ToListAsync();
             Customer.ItemsSource = customers;
         }
+        private void ButtonUpdateCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            Customer selectedCustomer = Customer.SelectedItem as Customer;
+            if (selectedCustomer != null)
+            {
+                UpdateCustomer updateCustomerPage = new UpdateCustomer();
+                updateCustomerPage.SelectedCustomer = selectedCustomer;
+                NavigationService?.Navigate(updateCustomerPage);
+            }
+        }
         private void AddCustomerButton_Click(object sender, RoutedEventArgs e)
         {
             AddCustomer newPage = new AddCustomer();

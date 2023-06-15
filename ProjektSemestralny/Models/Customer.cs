@@ -12,7 +12,6 @@ namespace ProjektSemestralny.Models
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public string Adres { get; set; }
-        public string NumerTelefonu { get; set; }
-        //public virtual ICollection<Reservation> Reservations { get; set; }
+        public string NumerTelefonu { get; set; }    
     }
 }

@@ -46,6 +46,16 @@ namespace ProjektSemestralny.Views
             var reservations = await context.Reservations.ToListAsync();
             Reservation.ItemsSource = reservations;
         }
+        private void ButtonUpdateReservation_Click(object sender, RoutedEventArgs e)
+        {
+            Reservation selectedReservation = Reservation.SelectedItem as Reservation;
+            if (selectedReservation != null)
+            {
+                UpdateReservation updateReservationPage = new UpdateReservation();
+                updateReservationPage.SelectedReservation = selectedReservation;
+                NavigationService?.Navigate(updateReservationPage);
+            }
+        }
         private void AddReservationButton_Click(object sender, RoutedEventArgs e)
         {
             AddReservation newPage = new AddReservation();
